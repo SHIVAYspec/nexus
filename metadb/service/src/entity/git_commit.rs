@@ -1,4 +1,4 @@
-use super::error::{EntityError, ParseError};
+use super::error::EntityParseError;
 use super::git_head::GitHeadID;
 
 #[derive(Clone, Debug)]
@@ -11,16 +11,16 @@ impl From<CommitHash> for Vec<u8> {
 }
 
 impl TryFrom<Vec<u8>> for CommitHash {
-    type Error = EntityError;
+    type Error = EntityParseError;
 
     fn try_from(value: Vec<u8>) -> Result<Self, Self::Error> {
         if value.len() == 32 {
             Ok(Self(value))
         } else {
-            Err(EntityError::Parse(ParseError::Msg(format!(
+            Err(EntityParseError::Msg(format!(
                 "Vector length is not 32 (for representing 256 bits). It is {}.",
                 value.len()
-            ))))
+            )))
         }
     }
 }
