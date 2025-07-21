@@ -1,0 +1,6 @@
+[package]
+name = "nexus_metadb_repo_diesel_sqlite"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]

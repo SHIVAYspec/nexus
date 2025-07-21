@@ -1,0 +1,10 @@
+[workspace]
+resolver = "3"
+members = [
+    "metadb/repo/diesel_sqlite",
+    "metadb/service",
+    "metadb/interface/grpc",
+    "metadb/config",
+    "client",
+    "cli",
+]
